@@ -190,7 +190,7 @@ input[type="submit"]:hover {
   }
 }
 .u-section-1 {
-  background-image: url("images/greenbg.png");
+  background-image: url("../images/greenbg.png");
   background-position: 50% 50%;
 }
 .vid-container {
