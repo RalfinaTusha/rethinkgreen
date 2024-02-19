@@ -28,11 +28,11 @@
     <nav class="u-align-right-xs u-menu u-menu-dropdown u-offcanvas u-menu-1 ">
       <div class="u-custom-menu u-nav-container">
         <ul class="u-nav u-unstyled u-nav-1 li">
-          <li class="u-nav-item"><a class="bold u-button-style hover" href="Home.html"
+          <li class="u-nav-item"><a class="bold u-button-style hover" href="/"
               style="padding: 10px 20px;">Home</a></li>
           <li class="u-nav-item"><a class="bold u-button-style hover  " href="About.html"
               style="padding: 10px 20px;">About</a></li>
-          <li class="u-nav-item"><a class="bold u-button-style hover " href="Contact.html"
+          <li class="u-nav-item"><a class="bold u-button-style hover " href="#footer"
               style="padding: 10px 20px; ">Contact</a></li>
           <li class="u-nav-item"><a class="bold u-button-style hover " href="profile.html"
               style="padding: 10px 20px; ">PROFILE</a></li>
@@ -152,7 +152,7 @@
       <source src="../static/vids/video1.mp4" type="video/mp4">
     </video>
     <div class="box">
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" required>
         <label for="materialType">Material Type:</label>
@@ -168,7 +168,7 @@
         <input type="text" id="materialDescription" name="materialDescription" required>
 
         <label for="picture">Upload Picture:</label>
-        <input type="file" id="picture" name="picture" accept="image/*">
+        <input type="file" class="form-control" name="picture" id="picture" >
 
         <button type="submit">Recycle Now</button>
     </div>
@@ -298,7 +298,7 @@
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="waves">
       <div class="wave" id="wave1"></div>
       <div class="wave" id="wave2"></div>
