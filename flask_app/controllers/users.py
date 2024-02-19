@@ -50,3 +50,9 @@ def login():
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/wheel')
+def wheel():
+    if 'user_id' not in session:
+        return redirect('/')
+    return render_template('wheel.html')
