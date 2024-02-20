@@ -1,6 +1,7 @@
 const wheel = document.getElementById("wheel");
 const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
+
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 20 },
@@ -59,11 +60,16 @@ const valueGenerator = (angleValue) => {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
       if(i.value === 'try again'){
-        finalValue.innerHTML = `<p>NA VJEN KEQ!</p>`;}
+        finalValue.innerHTML = `<p>NA VJEN KEQ!</p>`;
+      }
       else if(i.value === 'double the points'){
-        finalValue.innerHTML = `<p >URIME! JU DYFISHUAT PIKET TUAJA!</p>`;}
+        finalValue.innerHTML = `<p >URIME! JU DYFISHUAT PIKET TUAJA!</p>`;
+        point.value = parseInt(point.value * 2);
+      }
       else{
-      finalValue.innerHTML = `<p>URIME! JU FITUAT : ${i.value} PIKE</p>`;}
+      finalValue.innerHTML = `<p>URIME! JU FITUAT : ${i.value} PIKE</p>`;
+      point.value = parseInt(point.value) + parseInt(i.value);
+    }
       spinBtn.disabled = false;
       break;
     }
@@ -103,6 +109,9 @@ spinBtn.addEventListener("click", () => {
     }
   }, 10);
 });
+
+
+
  
 // // Display celebration message and create balloons
 // const displayCelebration = (value) => {

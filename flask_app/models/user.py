@@ -52,3 +52,7 @@ class User:
         query = "UPDATE users SET profile_pic = %(image)s WHERE id = %(id)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)
     
+    @classmethod
+    def update_wheel_points(cls, data):
+        query = "UPDATE users SET points = %(points)s WHERE id = %(id)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)

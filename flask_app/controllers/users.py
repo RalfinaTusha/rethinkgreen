@@ -62,7 +62,11 @@ def logout():
 def wheel():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('wheel.html')
+    data = {
+        "id": session['user_id']
+    }
+    user = User.get_by_id(data)
+    return render_template('wheel.html' , user = user)
 
 @app.route('/about')
 def about():
@@ -96,3 +100,15 @@ def new_profil_pic():
             data["image"] = current_time + filename
             User.update_profile_pic(data)
     return redirect('/profile')
+
+
+@app.route('/wheelPoint', methods=['POST'])
+def wheelPoint():
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        "id": session['user_id'],
+        "points": request.form['point']
+    }
+    User.update_wheel_points(data)
+    return redirect('/wheel')

@@ -37,8 +37,8 @@
                             style="padding: 10px 20px; ">Contact</a></li>
                     <li class="u-nav-item"><a class="bold u-button-style hover " href="/profile"
                             style="padding: 10px 20px; ">PROFILE</a></li>
-                    <li class="u-nav-item bold"><a class="bold"  href="/wheel"
-                            style="padding: 10px 20px; ">riCIKLO Fatin</a></li>
+                    <li class="u-nav-item bold"><a class="bold" href="/wheel" style="padding: 10px 20px; ">riCIKLO
+                            Fatin</a></li>
                     <!-- <li class="u-nav-item"><a href="/logout">
                         <img class="shutdown" src="../static/images/shutdown1.png" alt="Logout" style="padding: 10px 20px;">
                       </a></li> -->
@@ -48,16 +48,21 @@
 
     </header>
     <br><br><br>
-   
-        <div class="wrapper">
-            <div class="container">
-                <canvas id="wheel"></canvas>
-                <button id="spin-btn">Spin</button>
-                <img src="../static/images/arrow.png" alt="spinner arrow" />
-            </div>
-            <div id="final-value">
-            </div>
-        
+
+    <div class="wrapper">
+        <div class="container">
+            <canvas id="wheel"></canvas>
+            <button id="spin-btn">Spin</button>
+            <img src="../static/images/arrow.png" alt="spinner arrow" />
+        </div>
+        <div id="final-value">
+        </div>
+
+        <form action="/wheelPoint" method="post"">
+            <input type="hidden" id="point" name="point" value="{{user.points}}">
+            <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+        </form>
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script
