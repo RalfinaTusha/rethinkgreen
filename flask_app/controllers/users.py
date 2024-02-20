@@ -56,3 +56,15 @@ def wheel():
     if 'user_id' not in session:
         return redirect('/')
     return render_template('wheel.html')
+
+@app.route('/about')
+def about():
+    if 'user_id' not in session:
+        return redirect('/')
+    return render_template('about.html')
+
+@app.route('/profile')
+def profile():
+    if 'user_id' not in session:
+        return redirect('/')
+    return render_template('profile.html')

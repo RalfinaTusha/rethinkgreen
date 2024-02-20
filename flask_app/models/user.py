@@ -8,6 +8,8 @@ class User:
         self.name = data['name']
         self.email = data['email']
         self.password = data['password']
+        self.profile_pic = data['profile_pic']
+        self.points = data['points']
     
     
     @staticmethod
