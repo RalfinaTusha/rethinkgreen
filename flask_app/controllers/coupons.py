@@ -20,10 +20,4 @@ def purchase():
     if 'user_id' not in session:
         return redirect('/')
     
-    data = {
-        "coupon_id": 
-    }
-    if 
-
-    Recycle.save(data)
     return redirect('/')
