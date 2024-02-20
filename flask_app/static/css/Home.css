@@ -309,13 +309,21 @@ height: 100px!important;
 width: 100%;
   }
 }
-
+.shutdown{
+  width: 76px;
+  height: 58px;
+}
  
 .u-section-1 .u-sheet-1 {
   min-height: 626px;
 }
 .bold{
-  font-weight: 700;
+  font-weight: 800;
+
+}
+.size{
+  font-size: 40px;
+
 }
 
 .black{
@@ -334,6 +342,7 @@ width: 100%;
 nav{
   top: 20px;
   right: 55px;
+  font-weight:1000px ;
 }
 .hover{
   color: #76c77c;

@@ -4,23 +4,18 @@ const finalValue = document.getElementById("final-value");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 20 },
-  { minDegree: 31, maxDegree: 90, value: 10 },
-  { minDegree: 91, maxDegree: 150, value: 60},
+  { minDegree: 31, maxDegree: 90, value: 'double the points'},
+  { minDegree: 91, maxDegree: 150, value: 40},
   { minDegree: 151, maxDegree: 210, value: 50},
-  { minDegree: 211, maxDegree: 270, value: 40 },
-  { minDegree: 271, maxDegree: 330, value: 30 },
+  { minDegree: 211, maxDegree: 270, value:  60},
+  { minDegree: 271, maxDegree: 330, value: 'try again' },
   { minDegree: 331, maxDegree: 360, value: 20 },
 ];
 //Size of each piece
 const data = [16, 16, 16, 16, 16, 16];
 //background color for each piece
 var pieColors = [
-  "#8b35bc",
-  "#b163da",
-  "#8b35bc",
-  "#b163da",
-  "#8b35bc",
-  "#b163da",
+  "#bbcbdb", "#9ebd9e", "#dd855c", "#f1e8ca","#bbcbdb", "#745151", 
 ];
 //Create chart
 let myChart = new Chart(wheel, {
@@ -30,7 +25,7 @@ let myChart = new Chart(wheel, {
   type: "pie",
   data: {
     //Labels(values which are to be displayed on chart)
-    labels: [10, 20, 30, 40, 50, 60],
+    labels: ['double', 20, 'try again', 60, 50, 40],
     //Settings for dataset/pie
     datasets: [
       {
@@ -63,7 +58,12 @@ const valueGenerator = (angleValue) => {
   for (let i of rotationValues) {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-      finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
+      if(i.value === 'try again'){
+        finalValue.innerHTML = `<p>NA VJEN KEQ!</p>`;}
+      else if(i.value === 'double the points'){
+        finalValue.innerHTML = `<p >URIME! JU DYFISHUAT PIKET TUAJA!</p>`;}
+      else{
+      finalValue.innerHTML = `<p>URIME! JU FITUAT : ${i.value} PIKE</p>`;}
       spinBtn.disabled = false;
       break;
     }
@@ -78,7 +78,7 @@ let resultValue = 101;
 spinBtn.addEventListener("click", () => {
   spinBtn.disabled = true;
   //Empty final value
-  finalValue.innerHTML = `<p>Good Luck!</p>`;
+  // finalValue.innerHTML = `<p>Good Luck!</p>`;
   //Generate random degrees to stop at
   let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
   //Interval for rotation animation
@@ -103,3 +103,25 @@ spinBtn.addEventListener("click", () => {
     }
   }, 10);
 });
+ 
+// // Display celebration message and create balloons
+// const displayCelebration = (value) => {
+//   if (value === 'double the points') {
+//     finalValue.innerHTML = `<p>Congratulations! You doubled the points!</p>`;
+//     createBalloons(5); // Create 5 balloons (adjust the number as needed)
+//   } else if (value === 'try again') {
+//     finalValue.innerHTML = `<p>Sorry! Better luck next time.</p>`;
+//   } else {
+//     finalValue.innerHTML = `<p>Value: ${value}</p>`;
+//   }
+// };
+
+// // Create balloons dynamically
+// const createBalloons = (count) => {
+//   for (let i = 0; i < count; i++) {
+//     const balloon = document.createElement('div');
+//     balloon.className = 'balloon';
+//     balloon.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+//     document.body.appendChild(balloon);
+//   }
+// };
