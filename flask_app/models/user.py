@@ -39,3 +39,17 @@ class User:
             return results[0]
         return False
     
+    def calculate_points(user_points, points):
+        user_points = user_points - points
+        return user_points
+    
+    @classmethod
+    def update_points(cls, data):
+        query = "UPDATE users SET points = %(points)s WHERE id = %(user_id)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    
+
+
+
+    
+    
