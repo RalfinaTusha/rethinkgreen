@@ -29,6 +29,7 @@ def register():
     User.save(data)
     return redirect('/')
 
+
 @app.route('/login', methods=['POST'])
 def login():
     if "user_id" in session:
@@ -56,3 +57,11 @@ def wheel():
     if 'user_id' not in session:
         return redirect('/')
     return render_template('wheel.html')
+
+
+
+@app.route('/profile')
+def profile():
+    if 'user_id' not in session:
+        return redirect('/')
+    return render_template('profile.html')

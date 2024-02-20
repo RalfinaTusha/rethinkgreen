@@ -8,6 +8,8 @@ class User:
         self.name = data['name']
         self.email = data['email']
         self.password = data['password']
+        self.profile_pic = data['profile_pic']
+        self.points = data['points']
     
     
     @staticmethod
@@ -36,4 +38,18 @@ class User:
         if results:
             return results[0]
         return False
+    
+    def calculate_points(user_points, points):
+        user_points = user_points - points
+        return user_points
+    
+    @classmethod
+    def update_points(cls, data):
+        query = "UPDATE users SET points = %(points)s WHERE id = %(user_id)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    
+
+
+
+    
     
