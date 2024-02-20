@@ -6,9 +6,12 @@
   <meta charset="utf-8">
   <meta name="keywords" content="">
   <meta name="description" content="">
-  <title>About</title>
+  <title>Coupons</title>
   <link rel="stylesheet" href="./css/nicepage.css" media="screen">
   <link rel="stylesheet" href="./css/About.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/coupon.css') }}">
+
+
   <script class="u-script" type="text/javascript" src="./js/jquery.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="./js/nicepage.js" defer=""></script>
   <link id="u-theme-google-font" rel="stylesheet"
@@ -16,7 +19,23 @@
 
 <body>
 
-
+  {% for coupon in coupons %}
+    <div class="coupon">
+      <div class="container">
+        <h3>{{coupon.title}}</h3>
+      </div>
+      <img src="hamburger.jpg" alt="Avatar" style="width:100%;">
+      <div class="container" style="background-color:white">
+        <h2><b>20% OFF YOUR PURCHASE</b></h2>
+        <p>Lorem ipsum..</p>
+      </div>
+      <div class="container">
+        <p>Use Promo Code: <span class="promo">BOH232</span></p>
+        <p class="expire">Expires: Jan 03, 2021</p>
+      </div>
+    </div>
+  {% endfor %}
+  
 
 
 

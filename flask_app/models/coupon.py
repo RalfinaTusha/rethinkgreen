@@ -25,4 +25,15 @@ class Coupon:
             return results[0]
         return False
     
+        
+    @classmethod
+    def get_coupons(cls):
+        query = "SELECT * FROM coupons;"
+        results = connectToMySQL(cls.db_name).query_db(query)
+        coupons= []
+        if results:
+            for coupon in results:
+                coupons.append(coupon)
+            return coupons
+        return coupons
     
