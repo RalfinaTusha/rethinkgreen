@@ -39,3 +39,16 @@ class User:
             return results[0]
         return False
     
+    @classmethod
+    def get_by_id(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        if results:
+            return cls(results[0])
+        return False
+    
+    @classmethod
+    def update_profile_pic(cls, data):
+        query = "UPDATE users SET profile_pic = %(image)s WHERE id = %(id)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    

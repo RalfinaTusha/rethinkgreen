@@ -4,6 +4,13 @@ from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
+import os   
+from datetime import datetime
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'flask_app/static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route('/')
 def index():
     if 'user_id' in session:
@@ -67,4 +74,25 @@ def about():
 def profile():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('profile.html')
+    data = {
+        "id": session['user_id']
+    }
+    user = User.get_by_id(data)
+    return render_template('profile.html', user = user)
+
+@app.route('/new/profil/pic', methods=['POST'])
+def new_profil_pic():
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        "id": session['user_id']
+    }
+    if 'image' in request.files:
+        image = request.files['image']
+        if image.filename != '':
+            current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], current_time + filename))
+            data["image"] = current_time + filename
+            User.update_profile_pic(data)
+    return redirect('/profile')
