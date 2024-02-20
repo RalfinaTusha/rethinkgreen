@@ -12,11 +12,39 @@
   flex-direction: column;
 }
 .box {
-  background-color: #fff;
+  background-color: rgb(143,151,121, 0.8  );
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(75, 87, 75);
   width: 600px;
+}
+.cssbuttons-io-button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.5em 0.8em 1.2em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, rgb(64, 212, 123) 0%, rgb(110, 197, 135) 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em rgb(91, 171, 107);
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  /* width: 300px; */
+}
+
+.cssbuttons-io-button svg {
+  margin-right: 8px;
+}
+
+.cssbuttons-io-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em rgb(107, 243, 150);
+}
+
+.cssbuttons-io-button:active {
+  box-shadow: 0 0.3em 1em -0.5em rgb(95, 201, 143);
 }
 
 h1 {
@@ -200,6 +228,8 @@ input[type="submit"]:hover {
   justify-content: center;
   height: 100vh;
   position: relative;
+  left:25%
+  
 }
 .select{
   width: 300px;
