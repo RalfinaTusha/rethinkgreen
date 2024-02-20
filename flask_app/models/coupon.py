@@ -36,4 +36,3 @@ class Coupon:
                 coupons.append(coupon)
             return coupons
         return coupons
-    

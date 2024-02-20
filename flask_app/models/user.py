@@ -53,6 +53,12 @@ class User:
         return connectToMySQL(cls.db_name).query_db(query, data)
     
     @classmethod
+    def update_points(cls, data):
+        query = "UPDATE users SET points = %(points)s WHERE id = %(id)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    
+        
+    @classmethod
     def update_wheel_points(cls, data):
         query = "UPDATE users SET points = %(points)s WHERE id = %(id)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)
