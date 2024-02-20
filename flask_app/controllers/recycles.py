@@ -29,5 +29,5 @@ def recycle():
             image.save(os.path.join(app.config['UPLOAD_FOLDER'], current_time + filename))
             data["image"] = current_time + filename
     
-    Recycle.save(data)
+            Recycle.save(data)
     return redirect('/')
