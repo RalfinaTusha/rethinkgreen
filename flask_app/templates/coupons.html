@@ -75,6 +75,7 @@
     <div class="coupon">
       <div class="container">
         <h3 for="title">{{coupon.title}}</h3>
+        <br><h4>For only {{coupon.points}} points</h4>
       </div>
       <img src="hamburger.jpg" alt="Avatar" style="width:100%;">
       <div class="container" style="background-color:white">
@@ -83,7 +84,6 @@
       <div class="container">
         <p>Use Promo Code: <span class="promo">{{coupon.code}}</span></p>
       </div>
-      <input type="hidden" name="points" id="points" value="{{coupon.points}}">
       <input type="hidden" name="coupon_id" id="coupon_id" value="{{coupon.id}}">
 
       <input type="submit" value="Buy it">

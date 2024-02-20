@@ -21,19 +21,18 @@ def coupons():
 def purchase():
     if 'user_id' not in session:
         return redirect('/')
-    
-    points = int(request.form['points'])
-    user = User.get_by_id({'id': session['user_id']})
-    user_points = user.points
-    if user_points < points:
-        flash("You don't have enough points to purchase this coupon.", "notEnoughPoints")
-        return redirect('/coupons')
-    user_points -= points
     data = {
         'id': session['user_id'],
-        'points': user_points,
         'coupon_id': request.form['coupon_id']
     }
+    user = User.get_by_id(data)
+    user_points = user.points
+    coupons = Coupon.get_coupon_by_id(data)
+    if user_points < coupons['points']:
+        flash("You don't have enough points to purchase this coupon.", "notEnoughPoints")
+        return redirect('/coupons')
+    user_points -= coupons['points']
+    data['points'] = user_points
     User.update_points(data)
     Coupon.user_coupons(data)
     return redirect('/')
