@@ -112,6 +112,8 @@ spinBtn.addEventListener("click", () => {
 
 
 
+
+
  
 // // Display celebration message and create balloons
 // const displayCelebration = (value) => {
