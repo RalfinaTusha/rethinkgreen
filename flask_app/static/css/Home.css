@@ -11,12 +11,22 @@
   align-items: center;
   flex-direction: column;
 }
+
+.titull_form{
+  position: relative;
+  left: 45px;
+}
+
+.white{
+  color: #fff;
+
+}
 .box {
   background-color: rgb(143,151,121, 0.8  );
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgb(75, 87, 75);
-  width: 600px;
+  width: 600px;r
 }
 .cssbuttons-io-button {
   display: flex;
@@ -340,8 +350,11 @@ width: 100%;
   }
 }
 .shutdown{
-  width: 79px;
-  height: 58px;
+  width: 76px;
+  height: 55px;
+  position: relative;
+  bottom: -1px;
+  left: 100px;
 }
  
 .u-section-1 .u-sheet-1 {
@@ -365,7 +378,7 @@ width: 100%;
   width: 100px;
   height: 100px;
   top: 20px;
-  left: 100px;
+  left: 79px;
   font-size: 50px;
   
   }
@@ -387,6 +400,7 @@ nav{
 header{
   height: 100px;
   background-color: #555c66;
+  
 }
 li{
    
@@ -456,6 +470,10 @@ button:hover {
 .green{
   color: rgb(57, 155, 86);
 }
+.green2{
+  color: rgb(44, 120, 67);
+}
+
 
 .u-section-1 .u-container-layout-1 {
   padding-left: 0;
