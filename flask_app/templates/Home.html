@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <title>ReThinkGreen</title>
   <link rel="icon" href="../static/images/icon1.jpg" type="image/jpg">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <link rel="stylesheet" href="../static/css/nicepage.css" media="screen">
   <link rel="stylesheet" href="../static/css/Home.css" media="screen">
@@ -19,6 +20,8 @@
   <meta property="og:title" content="Home">
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
         
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,9 +190,25 @@
       </label>
       <input type="file" id="fileInput" name="image"  style="display:none;" />   
 
-        <button type="submit">Recycle Now</button>
-    </div>
-    </form>
+      <button type="submit" onclick="showThankYou()">Recycle Now</button>
+  </form>
+</div>
+
+<script>
+  function showThankYou() {
+    Swal.fire({
+      title: 'Thank You!',
+      text: 'Your recycling request has been submitted.',
+      icon: 'success',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#4CAF50',
+      background: '#fff',
+      timer: 8000, // Set the duration in milliseconds (e.g., 8000ms = 8 seconds)
+      showConfirmButton: true, // Display the "OK" button
+    });
+  }
+</script>
+
   </div>
      
 
