@@ -60,41 +60,41 @@
 
   </header>
 
-  {% with messages = get_flashed_messages(category_filter=["notEnoughPoints"]) %}
-  {% if messages %}
-  {% for message in messages %}
-  <p class="text-danger text-center">{{message}}</p>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
+  <div class="d-flex fs-2 danger">
+    {% with messages = get_flashed_messages(category_filter=["notEnoughPoints"]) %}
+    {% if messages %}
+    {% for message in messages %}
+    <p class="text-danger text-center">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+  
 
+  <div class="d-flex f-wrap">
 
+  
   {% for coupon in coupons %}
 
   <form action="/purchase" method="post">
-    <div class="coupon">
-      <div class="container">
-        <h3 for="title">{{coupon.title}}</h3>
-        <br><h4>For only {{coupon.points}} points</h4>
+    <div class="card">
+      <div class="content">
+        <div class="title" >{{coupon.points}} points</div>
+        <div class="price">{{coupon.title}}</div>
+        <div class="description">{{coupon.description}}</div>
+        <p class="text-white">Use Promo Code: <span class="promo">{{coupon.code}}</span></p>
+        <input type="hidden" name="coupon_id" id="coupon_id" value="{{coupon.id}}">
       </div>
-      <img src="hamburger.jpg" alt="Avatar" style="width:100%;">
-      <div class="container" style="background-color:white">
-        <h2><b>{{coupon.description}}</b></h2>
-      </div>
-      <div class="container">
-        <p>Use Promo Code: <span class="promo">{{coupon.code}}</span></p>
-      </div>
-      <input type="hidden" name="coupon_id" id="coupon_id" value="{{coupon.id}}">
-
-      <input type="submit" value="Buy it">
-
-    </div>
+        <button>
+          Buy now
+        </button>
+  </div>
 
   </form>
     
 
   {% endfor %}
-
+  </div>
 
 
 </body>
