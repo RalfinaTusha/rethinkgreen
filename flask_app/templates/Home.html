@@ -50,7 +50,7 @@
           <li class="u-nav-item"><a class="bold u-button-style hover  " href="/coupons"
               style="padding: 10px 20px;">Coupons</a></li>
           <li class="u-nav-item"><a class="u-button-style hover" href="/profile"
-              style="padding: 10px 20px; ">PROFILE</a></li>
+              style="padding: 10px 20px; ">Profile</a></li>
           <li class="u-nav-item"><a class="u-button-style hover" href="/wheel"
               style="padding: 10px 20px; ">riCIKLO Fatin</a></li>
               <li class="u-nav-item">
@@ -172,8 +172,12 @@
       <h3 class="bold logo titull_form"><span class="black">ReThink</span><span class="green2">GREEN</span></h3>
       <form action="/recycle" method="post" enctype="multipart/form-data">
         <label for="address" class="white">Address:</label>
-        <input type="text" id="address" name="address" required>
-        <label for="materialType" class="white">Material Type:</label>
+        <select id="address" class="select white" name="address">
+          <option value="Vaqarr">Vaqarr,Tirane,Albania</option>
+          <option value="Fier" class="black">Fier,Albania</option>
+          <option value="Sharre" class="black">Sharre,Tirane,Albania</option>
+         </select>
+         <label for="materialType" class="white">Material Type:</label>
         <select id="materialType" class="select white" name="materialType">
           <option value="aluminum">Aluminum</option>
           <option value="plastic" class="black">Plastic</option>
@@ -198,14 +202,14 @@
   function showThankYou() {
     Swal.fire({
       title: 'Thank You!',
-      text: 'Your recycling request has been submitted.',
-      icon: 'success',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#4CAF50',
-      background: '#fff',
-      timer: 8000, // Set the duration in milliseconds (e.g., 8000ms = 8 seconds)
-      showConfirmButton: true, // Display the "OK" button
-    });
+       icon: 'success',
+       background: '#fff',
+     });
+
+    // Set a timeout to close the modal after 8 seconds (8000 milliseconds)
+    setTimeout(() => {
+      Swal.close();
+    }, 8000000000000000);
   }
 </script>
 
