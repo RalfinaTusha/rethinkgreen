@@ -24,13 +24,13 @@ def recycle():
     }
     
     if request.form['materialType'] == 'aluminum':
-        point_rc = 2 * int(request.form['totalItems'])
+        point_rc = 20 * int(request.form['totalItems'])
     elif request.form['materialType'] == 'plastic':
-        point_rc = 0.5 * int(request.form['totalItems'])
+        point_rc = 5 * int(request.form['totalItems'])
     elif request.form['materialType'] == 'paper':
-        point_rc = 1 * int(request.form['totalItems'])
+        point_rc = 10 * int(request.form['totalItems'])
     elif request.form['materialType'] == 'other':
-        point_rc = 0.25 * int(request.form['totalItems'])
+        point_rc = 2.5 * int(request.form['totalItems'])
     
     user=User.get_by_id({'id':session['user_id']})
     user_points = user.points
