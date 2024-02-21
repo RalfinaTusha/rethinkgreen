@@ -97,7 +97,13 @@
     color: white;
   }
   
-  
+  #somebuttoma{
+    position: absolute;
+    top: 0%;
+    left:45%;
+    padding: 20px;
+    opacity: 0;
+  }
   
   #infouser{
       font-size: 15px;
@@ -206,26 +212,5 @@
       cursor: pointer;
     }
     
-    
-    
-    /* Stilizo butonin për të pasqyruar shkëlqimin e butonit origjinal */
-    .btn {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    .btn:hover {
-      background-color: #0056b3;
-    }
-    
-  
-  
-  .upload{
-    background-color: #0056b3;
-  }
   
   
