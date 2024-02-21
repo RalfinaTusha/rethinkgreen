@@ -10,12 +10,23 @@ class Recycle:
         self.items = data['items']
         self.image = data['image']
         self.user_id = data['user_id']
+        self.created_at = data['created_at']
         
         
     @classmethod
     def save(cls, data):
         query = "INSERT INTO recycles (address, material, items, image, user_id) VALUES (%(address)s, %(material)s, %(items)s, %(image)s, %(user_id)s);"
         return connectToMySQL(cls.db_name).query_db(query, data)
+    
+    
+    @classmethod
+    def get_recycles(cls, data):
+        query = "SELECT * FROM recycles WHERE user_id = %(id)s LIMIT 3;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        recycles = []
+        for item in results:
+            recycles.append(cls(item))
+        return recycles
         
     @staticmethod
     def validate_recycle(data):
@@ -24,3 +35,5 @@ class Recycle:
             is_valid = False
 
         return is_valid
+    
+    

@@ -10,6 +10,7 @@ class User:
         self.password = data['password']
         self.profile_pic = data['profile_pic']
         self.points = data['points']
+        self.rrotulluar = data['rrotulluar']
     
     
     @staticmethod
@@ -60,5 +61,5 @@ class User:
         
     @classmethod
     def update_wheel_points(cls, data):
-        query = "UPDATE users SET points = %(points)s WHERE id = %(id)s;"
+        query = "UPDATE users SET points = %(points)s, rrotulluar = 1 WHERE id = %(id)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)

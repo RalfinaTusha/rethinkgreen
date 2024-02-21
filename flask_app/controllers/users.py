@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template, request, session, redirect, flash
 from flask_app.models.user import User
+from flask_app.models.recycle import Recycle
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -73,12 +74,6 @@ def wheel():
     user = User.get_by_id(data)
     return render_template('wheel.html' , user = user)
 
-@app.route('/about')
-def about():
-    if 'user_id' not in session:
-        return redirect('/')
-    return render_template('about.html')
-
 @app.route('/profile')
 def profile():
     if 'user_id' not in session:
@@ -87,7 +82,8 @@ def profile():
         "id": session['user_id']
     }
     user = User.get_by_id(data)
-    return render_template('profile.html', user = user)
+    recycles = Recycle.get_recycles(data)
+    return render_template('profile.html', user = user, recycles = recycles)
 
 @app.route('/new/profil/pic', methods=['POST'])
 def new_profil_pic():

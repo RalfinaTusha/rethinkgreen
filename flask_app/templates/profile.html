@@ -92,15 +92,14 @@
           </thead>
         
           <tbody>
+            {%for recycle in recycles%}
             <tr>
-              <th scope="row">  recycle.addres  </th>
-              <td>  recycle.material </td>
-              <td>  recycle.items  </td>
-              <td>  recycle.creadted_at  </td>
+              <td>{{recycle.address}}</td>
+              <td>{{recycle.material}}</td>
+              <td>{{recycle.items}}</td>
+              <td>{{recycle.created_at}}</td>
             </tr>
-         
-          
-
+            {%endfor%}
           </tbody>
         </table>
 
