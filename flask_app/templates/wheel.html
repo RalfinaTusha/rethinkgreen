@@ -48,7 +48,11 @@
     <div class="wrapper">
         <div class="container">
             <canvas id="wheel"></canvas>
+            {% if user.rrotulluar == 0 %}
             <button id="spin-btn">Spin</button>
+            {% else %}
+            <button id="spin-btn" disabled>Spin</button>
+            {% endif %}
             <img src="../static/images/arrow.png" alt="spinner arrow" />
 
 
