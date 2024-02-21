@@ -21,7 +21,7 @@ class Recycle:
     
     @classmethod
     def get_recycles(cls, data):
-        query = "SELECT * FROM recycles WHERE user_id = %(id)s ORDER BY created_at DESC LIMIT 2GIT ;"
+        query = "SELECT * FROM recycles WHERE user_id = %(id)s ORDER BY created_at DESC LIMIT 2;"
         results = connectToMySQL(cls.db_name).query_db(query, data)
         recycles = []
         for item in results:

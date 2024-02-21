@@ -39,14 +39,34 @@
 
 
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
-    <header class="d-flex justify-content-around " id="sec-389a">
+    <header class="d-flex   u-clearfix  u-header u-header" id="sec-389a">
         <h3 class="bold logo"><span class="black">ReThink</span><span class="green">GREEN</span></h3>
-
-    </header>
+        <nav class="u-align-right-xs u-menu u-menu-dropdown u-offcanvas u-menu-1 ">
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1 li">
+              <li class="u-nav-item"><a class="bold" href="/" style="padding: 10px 20px;">Home</a></li>
+              <li class="u-nav-item"><a class="bold u-button-style hover  " href="/coupons"
+                  style="padding: 10px 20px;">Coupons</a></li>
+              <li class="u-nav-item"><a class="u-button-style hover" href="/wheel"
+                  style="padding: 10px 20px; ">riCIKLO Fatin</a></li>
+                  <li class="u-nav-item">
+                    <a href="/logout">
+                      <img class="u-button-style hover shutdown" src="../static/images/shutdown1.png" alt="Logout" style="padding: 10px 20px;">
+                    </a>
+                  </li>
+            </ul>
+    
+          </div>
+        </nav>
+    
+      </header>
     <br><br><br>
+    
 
     <div class="wrapper">
         <div class="container">
+ 
+            <div id="final-value"></div>
             <canvas id="wheel"></canvas>
             {% if user.rrotulluar == 0 %}
             <button id="spin-btn">Spin</button>
@@ -57,7 +77,7 @@
 
 
         </div>
-        <div id="final-value"></div>
+        
 
         <form id="point-form" action="/wheelPoint" method="post">
             <input type="hidden" id="point" name="point" value="{{user.points}}">
