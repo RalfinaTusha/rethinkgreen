@@ -33,7 +33,12 @@ def register():
         "email": request.form['email'],
         "password": bcrypt.generate_password_hash(request.form['password'])
     }
-    User.save(data)
+    user = User.get_by_email(data)
+    if user:
+        flash("Email already exists", "email")
+        return redirect('/')
+    user_id = User.save(data)
+    session['user_id'] = user_id
     return redirect('/')
 
 @app.route('/login', methods=['POST'])
@@ -111,4 +116,4 @@ def wheelPoint():
         "points": request.form['point']
     }
     User.update_wheel_points(data)
-    return redirect('/wheel')
+    return redirect('/profile')
